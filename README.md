@@ -1,11 +1,11 @@
-# Benchmarking Qwen3-14B vs Claude 4.5 Opus Distilled Qwen3-14B
+# Effects of Distilling Claude 4.5 Opus into Qwen3-14B
 
 > **Note:** I did not create and do not endorse the distilled model, I just thought it would be interesting to do some research on it.
 
 ## Results
 
 | Benchmark | Distilled | Base Qwen3-14B | Significant? |
-|---|---|---|---|---|
+|---|---|---|---|
 | HumanEval+ (coding) | **83.5%** | 55.5% | p < 10^-9 (***) |
 | IFEval (instruction following) | **77.3%** | 63.6% | p < 10^-7 (***) |
 | AIME 2024 (competition math) | 56.7% | **70.0%** | p = 0.344 (ns) |
