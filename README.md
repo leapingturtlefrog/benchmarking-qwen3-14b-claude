@@ -6,10 +6,10 @@
 
 | Benchmark | Distilled | Base Qwen3-14B | Significant? |
 |---|---|---|---|
-| HumanEval+ (coding) | **83.5%** | 55.5% | p < 10^-9 (***) |
-| IFEval (instruction following) | **77.3%** | 63.6% | p < 10^-7 (***) |
-| AIME 2024 (competition math) | 56.7% | **70.0%** | p = 0.344 (ns) |
-| AIME 2025 (competition math) | 43.3% | **66.7%** | p = 0.039 (*) |
+| HumanEval+ (coding) | **83.5%** | 55.5% | **very significant**: p < 10^-9 (***) |
+| IFEval (instruction following) | **77.3%** | 63.6% | **very significant**: p < 10^-7 (***) |
+| AIME 2024 (competition math) | 56.7% | **70.0%** | not significant: p = 0.344 (ns) |
+| AIME 2025 (competition math) | 43.3% | **66.7%** | **significant**: p = 0.039 (*) |
 
 The distilled model is significantly better at coding and instruction following, but worse at math. On HumanEval+, the distilled model solved 49 extra problems the base couldn't while only losing 3, a 16:1 ratio. On AIME (combined), the base model solved 41/60 vs 30/60 for the distilled model.
 
@@ -25,6 +25,6 @@ Improvement was uniform across skill types regardless of how many training examp
 
 ### Models
 
-- **Distilled**: `TeichAI/Qwen3-14B-Claude-4.5-Opus-High-Reasoning-Distill-GGUF`
-- **Base**: `Qwen/Qwen3-14B-GGUF`
-- **Dataset**: `TeichAI/claude-4.5-opus-high-reasoning-250x` (250 examples/2 million tokens from Claude 4.5 Opus)
+- Distilled: `TeichAI/Qwen3-14B-Claude-4.5-Opus-High-Reasoning-Distill-GGUF`
+- Base: `Qwen/Qwen3-14B-GGUF`
+- Dataset: `TeichAI/claude-4.5-opus-high-reasoning-250x` (250 examples/2 million tokens from Claude 4.5 Opus)
