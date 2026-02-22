@@ -1,0 +1,136 @@
+{
+  "results": {
+    "humaneval_plus": {
+      "alias": "humaneval_plus",
+      "pass@1,create_test": 0.0,
+      "pass@1_stderr,create_test": 0.0
+    }
+  },
+  "group_subtasks": {
+    "humaneval_plus": []
+  },
+  "configs": {
+    "humaneval_plus": {
+      "task": "humaneval_plus",
+      "dataset_path": "evalplus/humanevalplus",
+      "test_split": "test",
+      "doc_to_text": "{{prompt}}",
+      "doc_to_target": "{{test}}\ncheck({{entry_point}})",
+      "unsafe_code": true,
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "{{prompt}}",
+        "doc_to_choice": null,
+        "doc_to_target": "{{test}}\ncheck({{entry_point}})",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "def pass_at_k(references: list[str], predictions: list[list[str]], k: list[int] = None):\n    global compute_\n    assert k is not None\n    if isinstance(k, int):\n        k = [k]\n    res = compute_.compute(\n        references=references,\n        predictions=predictions,\n        k=k,\n    )\n    return res[0]\n",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "k": [
+            1
+          ]
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\nclass",
+          "\ndef",
+          "\n#",
+          "\nif",
+          "\nprint"
+        ],
+        "max_gen_toks": 1024,
+        "do_sample": false
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "create_test",
+          "filter": [
+            {
+              "function": "custom",
+              "filter_fn": "<function build_predictions at 0x7f99083d2520>"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "base_url": "http://127.0.0.1:8766/",
+        "model": "TeichAI/Qwen3-14B-Claude-4.5-Opus-High-Reasoning-Distill-GGUF",
+        "num_concurrent": 64,
+        "timeout": 1200
+      }
+    }
+  },
+  "versions": {
+    "humaneval_plus": 1.0
+  },
+  "n-shot": {
+    "humaneval_plus": 0
+  },
+  "higher_is_better": {
+    "humaneval_plus": {
+      "pass_at_k": true
+    }
+  },
+  "n-samples": {
+    "humaneval_plus": {
+      "original": 164,
+      "effective": 164
+    }
+  },
+  "config": {
+    "model": "openai-chat-completions",
+    "model_args": {
+      "base_url": "http://127.0.0.1:8766/",
+      "model": "TeichAI/Qwen3-14B-Claude-4.5-Opus-High-Reasoning-Distill-GGUF",
+      "num_concurrent": 64,
+      "timeout": 1200
+    },
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "use_cache": ".cache/humaneval_plus",
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": {},
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "26240eb",
+  "date": 1771729282.827882,
+  "pretty_env_info": "N/A (torch not installed)",
+  "transformers_version": "N/A",
+  "lm_eval_version": "0.4.11",
+  "upper_git_hash": null,
+  "task_hashes": {
+    "humaneval_plus": "7a84598cfe2bc77f2a1895e55af3339affeb3ff1b57abbaa57706ed96ebb086b"
+  },
+  "model_source": "openai-chat-completions",
+  "model_name": "TeichAI/Qwen3-14B-Claude-4.5-Opus-High-Reasoning-Distill-GGUF",
+  "model_name_sanitized": "TeichAI__Qwen3-14B-Claude-4.5-Opus-High-Reasoning-Distill-GGUF",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": true,
+  "chat_template": "",
+  "chat_template_sha": null,
+  "total_evaluation_time_seconds": "890.8471663839882"
+}
